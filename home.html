@@ -1,0 +1,1052 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stitch & Angel Fitness ♡</title>
+
+<style>
+:root {
+  --blue: #dcecff;
+  --blue-dark: #527cae;
+  --blue-light: #eff7ff;
+  --pink: #ffe3ed;
+  --pink-dark: #b66b8b;
+  --pink-light: #fff3f7;
+  --green: #56a979;
+  --ink: #354253;
+  --muted: #8994a3;
+  --bg: #fafbfe;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+header {
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: white;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.logo {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--blue-dark);
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+}
+
+nav button {
+  border: 0;
+  background: transparent;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: var(--ink);
+}
+
+nav button:hover { background: #f0f3f8; }
+
+main {
+  max-width: 1050px;
+  margin: auto;
+  padding: 35px 22px 65px;
+}
+
+.hidden { display: none !important; }
+
+.hero {
+  padding: 42px 35px;
+  background: linear-gradient(120deg,#dcecff,#fce7f0);
+  border-radius: 25px;
+  margin-bottom: 35px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "🌺 🩵 🌸";
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  font-size: 28px;
+}
+
+.eyebrow {
+  color: var(--blue-dark);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(30px,5vw,46px);
+  margin: 12px 0;
+}
+
+h2 { font-size: 24px; }
+p { line-height: 1.7; color: var(--muted); }
+
+.section { margin-top: 35px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.day-card {
+  border: 0;
+  border-radius: 23px;
+  padding: 28px;
+  min-height: 225px;
+  text-align: left;
+  color: var(--ink);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.day-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #34445b12;
+}
+
+.day-card.blue { background: var(--blue); }
+.day-card.pink { background: var(--pink); }
+
+.day-number {
+  font-size: 43px;
+  font-weight: 800;
+  opacity: .65;
+}
+
+.day-card h2 { margin: 12px 0 5px; }
+
+.day-card small {
+  color: #66758a;
+  font-size: 13px;
+}
+
+.panel {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px #34445b0b;
+}
+
+.back {
+  border: 0;
+  background: #edf1f7;
+  border-radius: 12px;
+  padding: 11px 16px;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.video-list {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.video {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #f7f8fb;
+  padding: 15px;
+  border-radius: 14px;
+}
+
+.video-info { min-width: 0; }
+
+.video-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.video a {
+  color: var(--blue-dark);
+  text-decoration: none;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.video a:hover { text-decoration: underline; }
+
+.remove {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: #ffe8ef;
+  color: #bb6485;
+  font-size: 23px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  transition: .2s;
+}
+
+.remove:hover {
+  background: #f8cbd9;
+  transform: scale(1.08);
+}
+
+.add-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #e2e6ed;
+  border-radius: 12px;
+  padding: 13px;
+  outline: none;
+}
+
+input:focus { border-color: var(--blue-dark); }
+
+.primary {
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 19px;
+  background: var(--blue);
+  color: #42658d;
+  font-weight: 700;
+}
+
+.primary:hover { background: #c8e0ff; }
+
+.calendar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.calendar-head h2 {
+  text-align: center;
+  margin: 0;
+}
+
+.month-arrow {
+  border: 0;
+  background: #edf2f9;
+  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  font-size: 21px;
+  color: var(--ink);
+}
+
+.month-arrow:disabled {
+  opacity: .3;
+  cursor: not-allowed;
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  gap: 7px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 8px 0;
+}
+
+.date {
+  border: 0;
+  border-radius: 12px;
+  aspect-ratio: 1;
+  font-weight: 600;
+  position: relative;
+  transition: .15s;
+}
+
+.date:hover { transform: scale(1.05); }
+
+.date.stitch {
+  background: var(--blue);
+  color: var(--blue-dark);
+}
+
+.date.angel {
+  background: var(--pink);
+  color: var(--pink-dark);
+}
+
+.date.done {
+  outline: 2px solid var(--green);
+}
+
+.date.done::after {
+  content: "✓";
+  position: absolute;
+  top: 1px;
+  right: 4px;
+  font-size: 11px;
+  color: var(--green);
+  font-weight: 900;
+}
+
+.date.selected {
+  box-shadow: inset 0 0 0 2px #68798e;
+}
+
+.empty { background: transparent; }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 12px;
+  margin: 20px 0;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.side-panel {
+  margin-top: 23px;
+  padding: 23px;
+  border-radius: 18px;
+  background: #f8f9fc;
+  border: 1px solid #edf0f5;
+}
+
+.side-panel.stitch-panel { background: var(--blue-light); }
+.side-panel.angel-panel { background: var(--pink-light); }
+
+.complete {
+  background: #e3f4e9;
+  color: #34845b;
+  border: 0;
+  padding: 13px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.complete.checked { background: #c9ecd6; }
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media(max-width:600px) {
+  header { padding: 17px; }
+  main { padding: 22px 14px 50px; }
+  .cards { grid-template-columns: 1fr; }
+  .hero { padding: 28px 22px; }
+  .add-form { flex-direction: column; }
+  .month-grid { gap: 4px; }
+  .date { border-radius: 8px; font-size: 12px; }
+  .calendar-head h2 { font-size: 19px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">✦ STITCH & ANGEL ♡</div>
+  <nav>
+    <button onclick="showHome()">Home</button>
+    <button onclick="showCalendar()">♡ Calendar</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- HOME PAGE -->
+
+<section id="home">
+
+  <div class="hero">
+    <div class="eyebrow">YOUR PERSONAL FITNESS SPACE</div>
+    <h1>Welcome to your fitness journal! 🩵</h1>
+    <p>
+      Your little fitness journey starts here.
+      Stay consistent, have fun and celebrate your progress!
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Choose your workout ♡</h2>
+    <p>Which workout are we doing today?</p>
+
+    <div class="cards">
+
+      <button class="day-card blue" onclick="showDay(1)">
+        <div class="day-number">🩵 01</div>
+        <h2>Stitch Day</h2>
+        <small>Your blue workout plan →</small>
+      </button>
+
+      <button class="day-card pink" onclick="showDay(2)">
+        <div class="day-number">💗 02</div>
+        <h2>Angel Day</h2>
+        <small>Your pink workout plan →</small>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="section panel">
+    <h2>My progress ✨</h2>
+    <p id="progress">0 completed workouts</p>
+  </div>
+
+</section>
+
+
+<!-- WORKOUT PAGE -->
+
+<section id="workout" class="hidden">
+
+  <button class="back" onclick="showHome()">← Back home</button>
+
+  <div class="panel">
+
+    <div class="eyebrow" id="day-label">YOUR WORKOUT</div>
+
+    <h1 id="day-title">Stitch Day 🩵</h1>
+
+    <p>
+      Here are your workout videos!
+      Click any link to watch it on YouTube.
+    </p>
+
+    <div class="video-list" id="videos"></div>
+
+    <h3>Add another video +</h3>
+
+    <p>Paste a YouTube video or Shorts link below.</p>
+
+    <form class="add-form" onsubmit="addVideo(event)">
+      <input
+        id="video-url"
+        type="url"
+        placeholder="Paste your YouTube link here..."
+        required
+      >
+      <button class="primary" type="submit">+ Add video</button>
+    </form>
+
+    <p id="add-message" aria-live="polite"></p>
+
+  </div>
+</section>
+
+
+<!-- CALENDAR PAGE -->
+
+<section id="calendar" class="hidden">
+
+  <button class="back" onclick="showHome()">← Back home</button>
+
+  <div class="panel">
+
+    <div class="eyebrow">YOUR PERSONAL WORKOUT TRACKER</div>
+
+    <h1>My Calendar ♡</h1>
+
+    <p>
+      Choose a date to see which workout is scheduled.
+      Tick it off when you're done!
+    </p>
+
+    <div class="legend">
+      <span>
+        <i class="dot" style="background:#dcecff"></i>
+        Stitch Day 🩵
+      </span>
+
+      <span>
+        <i class="dot" style="background:#ffe3ed"></i>
+        Angel Day 💗
+      </span>
+
+      <span>
+        <i class="dot" style="background:#56a979"></i>
+        Completed ✓
+      </span>
+    </div>
+
+    <div class="calendar-head">
+
+      <button
+        class="month-arrow"
+        id="previous-month"
+        onclick="changeMonth(-1)"
+        aria-label="Previous month"
+      >←</button>
+
+      <h2 id="month-title">January 2026</h2>
+
+      <button
+        class="month-arrow"
+        id="next-month"
+        onclick="changeMonth(1)"
+        aria-label="Next month"
+      >→</button>
+
+    </div>
+
+    <div class="month-grid" id="month-grid"></div>
+
+    <!-- DATE SIDE PANEL -->
+
+    <div class="side-panel hidden" id="date-panel">
+
+      <div class="eyebrow">YOUR SELECTED DATE</div>
+
+      <h2 id="selected-date"></h2>
+
+      <p id="selected-day"></p>
+
+      <p id="selected-colour"></p>
+
+      <button
+        class="complete"
+        id="complete-button"
+        onclick="toggleComplete()"
+      >
+        ✓ Mark workout as completed
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Made with ♡ for your fitness journey · Stitch & Angel edition
+</footer>
+
+
+<script>
+
+// ORIGINAL WORKOUT LINKS
+
+const initialVideos = {
+  1: [
+    "https://www.youtube.com/watch?v=R1IGZKl6v-U",
+    "https://www.youtube.com/shorts/N5ENAsa7Iiw",
+    "https://www.youtube.com/shorts/PkYvDt8Ow_8",
+    "https://www.youtube.com/shorts/1m0TpjtUYhM"
+  ],
+
+  2: [
+    "https://www.youtube.com/watch?v=R1IGZKl6v-U",
+    "https://www.youtube.com/shorts/x6-iFHfoKpI",
+    "https://www.youtube.com/shorts/1m0TpjtUYhM"
+  ]
+};
+
+
+// LOAD SAVED INFORMATION
+
+function load(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+let videos = load("stitchAngelVideos", null);
+
+if (!videos || !Array.isArray(videos[1]) ||
+    !Array.isArray(videos[2])) {
+  videos = {
+    1: [...initialVideos[1]],
+    2: [...initialVideos[2]]
+  };
+}
+
+let completed = load("stitchAngelCompleted", []);
+
+if (!Array.isArray(completed)) completed = [];
+
+let currentDay = 1;
+
+// Calendar starts January 2026
+let month = 0;
+let year = 2026;
+
+let selected = null;
+
+
+// SAVE INFORMATION
+
+function save() {
+  localStorage.setItem(
+    "stitchAngelVideos",
+    JSON.stringify(videos)
+  );
+
+  localStorage.setItem(
+    "stitchAngelCompleted",
+    JSON.stringify(completed)
+  );
+}
+
+
+// PAGE NAVIGATION
+
+function hidePages() {
+  ["home", "workout", "calendar"].forEach(id => {
+    document.getElementById(id).classList.add("hidden");
+  });
+}
+
+function showHome() {
+  hidePages();
+
+  document.getElementById("home").classList.remove("hidden");
+
+  updateProgress();
+}
+
+function showDay(day) {
+  currentDay = day;
+
+  hidePages();
+
+  document.getElementById("workout").classList.remove("hidden");
+
+  document.getElementById("day-title").textContent =
+    day === 1 ? "Stitch Day 🩵" : "Angel Day 💗";
+
+  document.getElementById("day-label").textContent =
+    day === 1 ? "YOUR STITCH WORKOUT" : "YOUR ANGEL WORKOUT";
+
+  document.getElementById("add-message").textContent = "";
+
+  renderVideos();
+}
+
+
+// DISPLAY VIDEO LINKS
+
+function renderVideos() {
+  const list = document.getElementById("videos");
+
+  list.innerHTML = "";
+
+  videos[currentDay].forEach((url, index) => {
+
+    const item = document.createElement("div");
+    item.className = "video";
+
+    const left = document.createElement("div");
+    left.className = "video-info";
+
+    const label = document.createElement("div");
+    label.className = "video-label";
+    label.textContent = "VIDEO " + (index + 1);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "▶ Watch workout on YouTube";
+
+    left.append(label, link);
+
+    // CROSS BUTTON FOR EVERY VIDEO
+
+    const remove = document.createElement("button");
+
+    remove.className = "remove";
+    remove.textContent = "×";
+    remove.title = "Remove video";
+    remove.setAttribute("aria-label", "Remove video " + (index + 1));
+
+    remove.onclick = () => {
+      removeVideo(index);
+    };
+
+    item.append(left, remove);
+
+    list.append(item);
+
+  });
+}
+
+
+// REMOVE VIDEO
+
+function removeVideo(index) {
+
+  const confirmed = confirm(
+    "Are you sure you want to remove this video?"
+  );
+
+  if (!confirmed) return;
+
+  videos[currentDay].splice(index, 1);
+
+  save();
+
+  renderVideos();
+}
+
+
+// ADD VIDEO
+
+function addVideo(event) {
+
+  event.preventDefault();
+
+  const input = document.getElementById("video-url");
+
+  const message = document.getElementById("add-message");
+
+  let url;
+
+  try {
+    url = new URL(input.value.trim());
+  } catch {
+    message.textContent = "Please enter a valid YouTube link.";
+    return;
+  }
+
+  const validHosts = [
+    "youtube.com",
+    "www.youtube.com",
+    "m.youtube.com",
+    "youtu.be",
+    "www.youtu.be"
+  ];
+
+  if (!validHosts.includes(url.hostname)) {
+    message.textContent = "Please use a YouTube link.";
+    return;
+  }
+
+  const isYoutubeVideo =
+    url.hostname.includes("youtu.be")
+      ? url.pathname.length > 1
+      : (
+          url.pathname === "/watch" && url.searchParams.has("v") ||
+          url.pathname.startsWith("/shorts/")
+        );
+
+  if (!isYoutubeVideo) {
+    message.textContent = "Please enter a valid video or Shorts link.";
+    return;
+  }
+
+  videos[currentDay].push(url.href);
+
+  save();
+
+  input.value = "";
+
+  message.textContent = "Video added successfully! ♡";
+
+  renderVideos();
+}
+
+
+// CALENDAR NAVIGATION
+
+function showCalendar() {
+
+  hidePages();
+
+  document.getElementById("calendar").classList.remove("hidden");
+
+  renderCalendar();
+}
+
+
+function changeMonth(amount) {
+
+  const newDate = new Date(year, month + amount, 1);
+
+  const minimum = new Date(2026, 0, 1);
+  const maximum = new Date(2030, 11, 1);
+
+  if (newDate < minimum || newDate > maximum) return;
+
+  month = newDate.getMonth();
+  year = newDate.getFullYear();
+
+  selected = null;
+
+  document.getElementById("date-panel").classList.add("hidden");
+
+  renderCalendar();
+}
+
+
+// DISPLAY MONTH
+
+function renderCalendar() {
+
+  const title = document.getElementById("month-title");
+
+  const grid = document.getElementById("month-grid");
+
+  title.textContent = new Date(year, month).toLocaleDateString(
+    "en-GB",
+    {
+      month: "long",
+      year: "numeric"
+    }
+  );
+
+  grid.innerHTML = "";
+
+  // WEEKDAYS
+
+  const weekdays = [
+    "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
+  ];
+
+  weekdays.forEach(day => {
+
+    const el = document.createElement("div");
+
+    el.className = "weekday";
+
+    el.textContent = day;
+
+    grid.append(el);
+
+  });
+
+
+  // CALCULATE MONTH
+
+  const firstDay = new Date(year, month, 1).getDay();
+
+  const totalDays = new Date(year, month + 1, 0).getDate();
+
+
+  // EMPTY SPACES BEFORE FIRST DAY
+
+  for (let i = 0; i < firstDay; i++) {
+
+    const blank = document.createElement("div");
+
+    blank.className = "empty";
+
+    grid.append(blank);
+
+  }
+
+
+  // CREATE CALENDAR DATES
+
+  for (let day = 1; day <= totalDays; day++) {
+
+    const dateKey =
+      `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+    // EVEN = STITCH, ODD = ANGEL
+
+    const type = day % 2 === 0 ? 1 : 2;
+
+    const button = document.createElement("button");
+
+    button.className =
+      "date " + (type === 1 ? "stitch" : "angel");
+
+    if (completed.includes(dateKey)) {
+      button.classList.add("done");
+    }
+
+    if (selected === dateKey) {
+      button.classList.add("selected");
+    }
+
+    button.textContent = day;
+
+    button.setAttribute(
+      "aria-label",
+      `${dateKey}, ${type === 1 ? "Stitch Day" : "Angel Day"}`
+    );
+
+    button.onclick = () => {
+      selectDate(dateKey, day, type);
+    };
+
+    grid.append(button);
+
+  }
+
+
+  // DISABLE ARROWS AT CALENDAR LIMITS
+
+  document.getElementById("previous-month").disabled =
+    year === 2026 && month === 0;
+
+  document.getElementById("next-month").disabled =
+    year === 2030 && month === 11;
+
+}
+
+
+// SELECT A DATE
+
+function selectDate(key, day, type) {
+
+  selected = key;
+
+  const panel = document.getElementById("date-panel");
+
+  panel.classList.remove("hidden");
+
+  panel.classList.toggle("stitch-panel", type === 1);
+
+  panel.classList.toggle("angel-panel", type === 2);
+
+
+  const selectedDate = new Date(year, month, day);
+
+  document.getElementById("selected-date").textContent =
+    selectedDate.toLocaleDateString(
+      "en-GB",
+      {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    );
+
+
+  document.getElementById("selected-day").textContent =
+    type === 1
+      ? "🩵 This is Stitch Day!"
+      : "💗 This is Angel Day!";
+
+
+  document.getElementById("selected-colour").textContent =
+    type === 1
+      ? "Pastel blue represents Stitch Day."
+      : "Pastel pink represents Angel Day.";
+
+
+  updateCompleteButton(key);
+
+  renderCalendar();
+
+}
+
+
+// COMPLETION BUTTON
+
+function updateCompleteButton(key) {
+
+  const button = document.getElementById("complete-button");
+
+  const isDone = completed.includes(key);
+
+  button.textContent = isDone
+    ? "✓ Workout completed · Undo"
+    : "✓ Mark workout as completed";
+
+  button.classList.toggle("checked", isDone);
+
+}
+
+
+// MARK WORKOUT COMPLETE
+
+function toggleComplete() {
+
+  if (!selected) return;
+
+  if (completed.includes(selected)) {
+
+    completed = completed.filter(date => date !== selected);
+
+  } else {
+
+    completed.push(selected);
+
+  }
+
+  save();
+
+  updateCompleteButton(selected);
+
+  renderCalendar();
+
+  updateProgress();
+
+}
+
+
+// HOME PAGE PROGRESS
+
+function updateProgress() {
+
+  const count = completed.length;
+
+  document.getElementById("progress").textContent =
+    count + (count === 1
+      ? " completed workout day ✓"
+      : " completed workout days ✓");
+
+}
+
+
+// START WEBSITE
+
+showHome();
+
+</script>
+
+</body>
+</html>
